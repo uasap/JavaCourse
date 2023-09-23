@@ -13,22 +13,21 @@ public class IgrStore {
         prizeIgruski = new ArrayList<>();
     }
 
-    public void addIgr(int id, String name, int quantity, double weight) {
-        Igr igr = new Igr(id, name, quantity, weight);
+    public void addIgr(int id, String name, int num, double weight) {
+        Igr igr = new Igr(id, name, num, weight);
         igrushki.add(igr);
     }
 
-    public void setToyWeight(int id, double weight) {
+    public void setToyWeight(int ident, double weight) {
         for (Igr igr : igrushki) {
-            if (igr.getId() == id) {
+            if (igr.getId() == ident) {
                 igr.setWeight(weight);
                 break;
             }
         }
     }
 
-    public void play() {
-        // calculate total weight
+    public void play() {        
         double totalWeight = 0;
         for (Igr igr : igrushki) {
             totalWeight += igr.getWeight();
@@ -37,7 +36,7 @@ public class IgrStore {
         Random rand = new Random();
         double randomNumber = rand.nextDouble() * totalWeight;
 
-        // find the prize toy
+        // найти призовую игрушку
         Igr prizeIgr = null;
         for (Igr igr : igrushki) {
             if (randomNumber < igr.getWeight()) {
@@ -47,21 +46,21 @@ public class IgrStore {
             randomNumber -= igr.getWeight();
         }
 
-        // add the prize toy to the list of prize toys
-        if (prizeIgr != null && prizeIgr.getQuantity() > 0) {
+        // добавить призовую игрушку в лист 
+        if (prizeIgr != null && prizeIgr.getNum() > 0) {
             prizeIgruski.add(prizeIgr);
 
-            // decrement the quantity of the prize toy
-            prizeIgr.setQuantity(prizeIgr.getQuantity() - 1);
+            // уменьшить количество призовых игрушек
+            prizeIgr.setNum(prizeIgr.getNum() - 1);
         }
     }
 
     public void getPrizeIgr() throws IOException {
         if (prizeIgruski.size() > 0) {
-            // remove the first prize toy from the list of prize toys
+            // удалить первую призовую игрушку из листа призовых игрушек
             Igr prizeToy = prizeIgruski.remove(0);
 
-            // write the prize toy to a file
+            // записать призовую игрушку в файл
             FileWriter writer = new FileWriter("prize_igr.txt", true);
             String str = prizeToy.getId() + "," + prizeToy.getName() + "\n";
             writer.write(str);
