@@ -1,0 +1,11 @@
+6,Igr 6
+2,Igr 2
+4,Igr 4
+7,Igr 7
+5,Igr 5
+4,Igr 4
+7,Igr 7
+6,Igr 6
+7,Igr 7
+5,Igr 5
+7,Igr 7
