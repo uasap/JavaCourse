@@ -18,7 +18,7 @@ public class IgrStore {
         igrushki.add(igr);
     }
 
-    public void setToyWeight(int ident, double weight) {
+    public void setIgrWeight(int ident, double weight) {
         for (Igr igr : igrushki) {
             if (igr.getId() == ident) {
                 igr.setWeight(weight);
@@ -27,7 +27,7 @@ public class IgrStore {
         }
     }
 
-    public void play() {        
+    public void process() {        
         double totalWeight = 0;
         for (Igr igr : igrushki) {
             totalWeight += igr.getWeight();

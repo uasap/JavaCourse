@@ -16,11 +16,11 @@ public class Main {
 
 
         // установить вес игрушки
-        store.setToyWeight(2, 41);
-        store.setToyWeight(5, 67);
-        store.setToyWeight(4, 80);
+        store.setIgrWeight(2, 41);
+        store.setIgrWeight(5, 67);
+        store.setIgrWeight(4, 80);
 
-        store.play();
+        store.process();
         store.getPrizeIgr();      
        
     }
